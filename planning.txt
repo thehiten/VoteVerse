@@ -1,0 +1,97 @@
+voting application
+
+what?
+voter can give vote to candidate:
+
+models?
+
+
+// Define schema for the blog post model
+example
+const postSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  },
+})
+
+routes?
+
+example
+
+router.get('/', async (req, res) => {
+  try {
+    const posts = await Post.find();
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+
+User Sign Up/Sign In:
+User signs up with their Aadhar card number and password.
+User signs in using their Aadhar card number and password.
+
+List of Candidates (Electors):
+Endpoint to fetch the list of candidates (electors).
+
+Voting:
+User can vote for one candidate only once. After voting, the user cannot vote again.
+
+Real-Time Candidate Voting Count:
+Route to display the real-time voting count for each candidate.
+
+User Data with Unique Government ID Proof (Aadhar Card Number):
+User data includes their Aadhar card number for authentication and identification.
+
+Admin Functionality:
+Admin can manage the table of candidates (add/delete), but they cannot vote.
+
+Change Password:
+User can change their password.
+
+User Authentication:
+Users can log in using their Aadhar card number and password.
+
+
+admin can't vote.
+---------------------------------------------
+
+routes
+
+user authentication:
+        /signup: post - create a new user account
+        /login: post - log in to an existing account. [ aadhar card number + password] 
+
+voting:
+       /candidates: get - get the list of candidate.
+       /vote/:candidateId: post - vote for a specific candidate.
+
+vote counts:
+       
+       /vote/counts: get - get the list of candidates sorted by their vote counts
+
+user profile:
+
+       /profile: get - get the user's profile information.
+       /profile/password: put - change the user's password.(update)
+
+admin candidate management
+
+      /candidates: post - create a new candidate.
+      /candidates/:candidateId: put - update and existing candidate.
+      /candidates/:candidateId: delete - delete a candidatefrom the list.
+
+
+
+
+
+
+
+
+ 
